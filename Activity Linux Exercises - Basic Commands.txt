@@ -1,0 +1,102 @@
+1  ls
+    2  cd ..
+    3  ls
+    4  cd root
+    5  sudo cd root
+    6  sudo su
+    7  cd downloads
+    8  cd Downloads
+    9  ls
+   10  ls -la
+   11  sudo yum list installed
+   12  sudo yum install git
+   13  git config --global user.name "Vasanth5616"
+   14  git config --global user.name "erabelli.vasanth@gmail.com"
+   15  git clone "https://github.com/Vasanth5616/c406project"
+   16  pwd
+   17  cd /
+   18  cd /var/log
+   19  cd ..
+   20  pwd
+   21  ls
+   22  ls -l
+   23  ls -ltr
+   24  cd /
+   25  cd ~
+   26  cd
+   27  cd ..
+   28  man ls
+   29  cd /var
+   30  ls -ltrS
+   31  uname -i
+   32  history > vasanth.250218.module2
+   33  history
+
+monitoring
+----------
+137  mkdir files && cd files
+  138  ls
+  139  pwd
+  140* 
+  141  ls
+  142* 
+  143  tar -cvf files.tar files
+  144  cd ..
+  145  tar -cvf files.tar files
+  146  ls
+  147  tar -czvf files.tar.gz files
+  148  ls
+  149  history
+---------------------
+    1  chmod 400 sre.pem
+    2  cd downloads
+    3  chmod 400 sre.pem
+    4  ssh -i "sre.pem" ubuntu@ec2-15-207-112-73.ap-south-1.compute.amazonaws.com
+    5  ls --help
+    6  info
+    7  sysinfo
+    8  system
+    9  uname
+   10  vi f1
+   11  top
+   12  top -help
+   13  top --help
+   14  chmod 400 sre.pem
+   15  ssh -i "sre.pem" ubuntu@ec2-13-203-193-20.ap-south-1.compute.amazonaws.com
+   16  sleep 10
+   17  sleep 20 &
+   18  jobs
+   19  sleep 20
+   20  obs
+   21  jobs
+   22  sleep 20
+   23  jobs
+   24  bg
+   25  bg 2
+   26  bg 1
+   27  kill 1
+   28  kill 2
+   29  sleep 50
+   30  sleep 50 &
+   31  fg 1
+   32  dcreen
+   33  screen
+   34  history
+--------------------------------
+
+   14  ps
+   15  ps -f
+   16  ps 1386
+   17  ps 20
+   18  pid
+   19  top
+   20  apt install python
+   21  apt install python3
+   22  ps -a
+   23  ps -x
+   24  ps -u
+   25  ps -aux
+   26  ps python
+   27  kill 20
+   28  nice
+   29  free

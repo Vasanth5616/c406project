@@ -1,0 +1,41 @@
+Open a new file named avengers
+Command: vi ~/avengers
+
+Run a word count on the file
+Command: wc ~/avengers
+
+Edit the file to add a blank line and type "word count" followed by the value
+Command: vi ~/avengers
+
+Use search and replace within the editor to replace every instance of the word "the" with "THE"
+Command: :%s/\<the\>/THE/g
+
+Copy the first line and paste it after the word count entry
+Command: vi ~/avengers
+
+Delete the first line of the file
+Command: gg then dd
+
+Undo that deletion
+Command: u
+
+Insert at the top of the file the text "Captain America – Endgame" followed by an empty line
+Command: gg then o then type the text
+
+Find out the number of lines in the file now
+Command: wc -l ~/avengers
+
+Write the number of lines into the file one line above the word count with the text "line count" plus the value
+Command: vi ~/avengers
+
+Delete "Good luck" wherever it occurs in the file
+Command: :%s/Good luck//g
+
+Save and exit the file
+Command: :wq
+
+Submit a file named avengers.<yourname>.txt
+Command: mv ~/avengers ~/avengers.<yourname>.txt
+
+
+

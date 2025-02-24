@@ -1,0 +1,37 @@
+Linux File Navigation
+Check the current version of Linux.
+
+uname -a 
+Check your current location in the folder structure.
+
+pwd 
+Move up one folder.
+
+cd ..
+Check your location again.
+
+pwd
+Tip: Try hitting the UP arrow key to recall the command from an earlier step.
+
+List all the files with details. Try both of these commands to see how they are different.
+
+ls -l 
+ls -ltr 
+Change the directory to the root folder.
+
+cd /
+Check your location again.
+
+pwd
+List all files in the current directory, sorted with the most recently-changed file at the bottom of the screen.
+
+ls -ltr
+Change back to your home directory.
+
+cd ~
+List all files, including the hidden files.
+
+ls -ltra
+Run the history command.
+
+history
