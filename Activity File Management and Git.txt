@@ -1,0 +1,85 @@
+ Activity: File Management and Git
+
+Part A: Managing Files and Folders
+
+Create a folder in your home directory using your name as the name of the folder.
+
+mkdir <yourname>
+By convention, angle brackets are used to indicate placeholder text. The brackets should not be included in the name of the new folder.
+
+Move to this folder:
+
+cd <yourname>
+Create an empty file:
+
+touch file
+Create a new folder in the same location called myfolder:
+
+mkdir myfolder
+Move the empty file you created to the new folder:
+
+mv file myfolder/
+The / is not required, but it is a safer practice to include it.
+
+Without the /, if the directory myfolder does not exist, the command will rename file to myfolder.
+Create a backup of your file:
+
+cp -p myfolder/file file.bkp
+Remove the myfolder directory:
+
+rm -rf myfolder
+Go back to your home directory:
+
+cd ~
+
+Part B: Working with Git
+
+
+Clone the repository at https://github.com/The-Software-Guild/pss-orderbook-deploy/ :
+
+git clone https://github.com/TheAcademy/pss-orderbook-deploy/
+Go to the newly created "pss-orderbook-deploy" directory:
+
+cd pss-orderbook-deploy
+Navigate to the folder src/linux_activities/Activity2:
+
+cd src/linux_activities/Activity2
+
+Searching Files
+Display the contents of the file stock_investments.txt:
+
+cat stock_investments.txt
+Each line represents an investment in a given stock.
+Display the five first lines of the file:
+
+head -5 stock_investments.txt
+Display the five last lines of the file:
+
+tail -5 stock_investments.txt
+How many lines contain the word GOOG?
+
+grep GOOG stock_investments.txt | wc -l
+How many lines contain the word T?
+
+grep -wc T stock_investments.txt
+The -w flag is for word match.
+List the files that contain the word SPY in any letter case:
+
+grep -lir spy .
+List the files that do not contain the word spy:
+
+grep -lvri spy .
+Find all files containing the word "data" in their name:
+
+find . -type f -name *data*
+Find folders named error:
+
+find . -type d -name error
+Change permissions on all files that contain the word "data" so that the files are read-only for group and other.
+
+sudo find . -type f -name "*data*" -exec chmod 744 {} \;
+The exec allows you to execute a command on the results of find.
+
+Locate and remove write permission for all users on the file named WFC/data.txt:
+
+chmod -w WFC/data.txt

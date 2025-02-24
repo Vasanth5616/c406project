@@ -1,0 +1,53 @@
+Run a job in the foreground:
+sleep 60
+
+Run a job in the background:
+sleep 200 &
+
+View all background jobs:
+jobs
+
+Send a running job from the foreground to the background using Ctrl+z:
+sleep 50
+ press Ctrl+z
+
+View the status of jobs after sending one to the background:
+jobs
+
+Start the last job in the background:
+bg
+
+Start a specific job in the background (e.g., job 2):
+bg 2
+
+Start multiple jobs in the background (e.g., jobs 1 and 3):
+bg 1 3
+
+Terminate a job (e.g., job 1):
+kill %1
+
+Terminate multiple jobs (e.g., jobs 2 and 3):
+kill %2 %3
+
+Bring a job back to the foreground (e.g., job 1):
+fg 1
+
+Start a screen session:
+screen
+
+Run a command inside a screen session:
+while true; do echo "screen 1..."; sleep 5; done
+
+Exit from the screen session:
+ Ctrl+a, then d
+
+List all screen sessions:
+screen -list
+
+Reattach to a screen session (e.g., session 193073):
+screen -r 193073
+
+Close a screen session:
+screen -X -S 193073 quit
+
+

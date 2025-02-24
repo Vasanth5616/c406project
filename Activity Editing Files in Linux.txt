@@ -1,0 +1,26 @@
+Identify products with incorrect prices in stock_sample.csv:
+Command:
+grep -E "price_field_pattern" stock_sample.csv
+
+Look for the correct price in stock2022_09_28.csv:
+Command:
+grep "SYMBOL" stock2022_09_28.csv
+
+Edit the stock_sample.csv file and add correct prices:
+Command:
+vi stock_sample.csv
+
+Find product information for TSLA, MSFT, MS from stock2022_09_28.csv:
+Command:
+grep -E "(TSLA|MSFT|MS)" stock2022_09_28.csv
+
+Add this information to stock_sample.csv starting at line 4:
+Command:
+vi stock_sample.csv
+
+Search and replace "New York Stock Exchange" with "Wiley US Stock Exchange":
+Command:
+:%s/New York Stock Exchange/Wiley US Stock Exchange/g
+
+Save and exit the file:
+Command-:wq
