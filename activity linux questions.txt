@@ -1,0 +1,211 @@
+1. .lsof command
+Lists open files.
+Example: lsof -i :80 (Finds processes using port 80).
+
+2. SMTP port number
+SMTP (Simple Mail Transfer Protocol) uses port 25 (or 587 for secure mail submission).
+
+3. DNS port
+Uses port 53 for resolving domain names.
+
+4. SSH port
+Uses port 22 for secure remote login.
+
+5. Difference between scp and sftp
+scp: Securely copies files between systems.
+sftp: Secure File Transfer Protocol for managing remote files interactively.
+
+6. Inode & Process ID
+Inode: Metadata about a file (permissions, size, location).
+PID (Process ID): Unique number for running processes.
+
+7. top command
+Displays real-time system processes and resource usage.
+Example: top (Shows CPU/memory usage).
+
+8. chmod & chown
+chmod: Changes file permissions (chmod 755 file).
+chown: Changes file ownership (chown user:group file).
+
+9. tail command
+Displays last lines of a file.
+Example: tail -n 10 /var/log/syslog.
+
+10. find command
+Searches for files based on conditions.
+Example: find /home -name "*.txt".
+
+11. grep command
+Searches for patterns in text.
+Example: grep "error" /var/log/syslog.
+
+12. What is RAM?
+Random Access Memory, a volatile memory for fast processing.
+
+13. What is a filesystem?
+Structure to store and organize files on storage devices.
+
+14. ps command
+Shows running processes.
+Example: ps aux | grep apache.
+
+15. Password-less authentication
+Uses SSH keys for login (ssh-keygen & ssh-copy-id user@server).
+
+16. What is scp and sftp?
+scp: Secure copy.
+sftp: Secure FTP.
+
+17. scp command
+Securely copies files.
+Example: scp file.txt user@server:/path/.
+
+18. Add, delete, and block users
+Add: useradd username
+Delete: userdel username
+Block: passwd -l username
+
+19. Difference between diff, cp, scp
+diff: Compares two files.
+cp: Copies locally.
+scp: Secure remote copy.
+
+20. Inode
+Data structure storing file metadata.
+
+21. Hardlink & Softlink
+Hardlink: Reference to the same inode (ln file1 file2).
+Softlink: Shortcut (ln -s file1 link1).
+
+22. Mount & Unmount
+mount /dev/sdb1 /mnt
+umount /mnt
+
+23. watch 'docker diff a2311'
+Continuously monitors container file changes.
+
+24. Difference between su and sudo
+su: Switch user (su - root).
+sudo: Run commands as another user (sudo apt update).
+
+25. free -h, free -m, free
+Shows memory usage.
+Example: free -m (Shows in MB).
+
+26. GRUB command
+Bootloader for Linux. Example: grub-install /dev/sda.
+
+27. netstat -nltp
+Lists open ports and processes using them.
+
+28. free -m
+Displays memory usage in MB.
+
+29. Ways to create a file
+touch file.txt
+echo "text" > file.txt
+cat > file.txt
+nano file.txt
+
+30. split command
+Splits files into parts.
+Example: split -b 10M largefile.
+
+31. shuf command
+Randomly shuffles lines.
+Example: shuf file.txt.
+
+32. alias command
+Creates shortcuts for commands.
+Example: alias ll='ls -la'.
+
+33. df -h (Disk related)
+Shows disk usage in human-readable format.
+
+34. CPU info (lscpu)
+Displays CPU details.
+
+35. /proc/meminfo
+Shows memory usage details.
+
+36. $$ command
+Shows the current script’s process ID.
+
+37. less command
+Opens files page-by-page (less file.txt).
+
+38. more command
+Similar to less, but less interactive.
+
+39. find command
+Searches for files (find / -name "file.txt").
+
+40. locate command
+Finds files quickly (locate file.txt).
+
+41. dbupdate command
+Not a standard Linux command, may refer to updatedb.
+
+42. sed command
+Stream editor for modifying text.
+Example: sed 's/old/new/g' file.txt.
+
+43. traceroute & tracepath
+Shows network path to a host.
+
+44. Port
+A communication endpoint in networking.
+
+45. ping command
+Tests network connectivity.
+Example: ping google.com.
+
+46. Nested commands
+Running commands inside others ($(command)).
+
+47. SSH (ssh user@server)
+Secure remote login.
+
+48. Telnet (Port 23)
+Unsecured remote access tool.
+
+49. FTP (Port 21)
+File Transfer Protocol.
+
+50. HTTP, HTTPS, DNS ports
+HTTP: 80
+HTTPS: 443
+DNS: 53
+
+51. Change SSH port (/etc/ssh/sshd_config)
+Edit Port 2222, then restart SSH.
+
+52. Email in Linux (mail command)
+Sends emails (mail -s "Subject" user@example.com).
+
+53. Zombie process
+A process that has completed execution but remains in the process table.
+
+54. Linux partitioning
+Logical division of storage (fdisk -l).
+
+55. w command
+Shows logged-in users.
+
+56. ls -lart
+Lists files sorted by time.
+
+57. Nested commands & ss (socket statistics)
+ss -tulnp (Lists open ports).
+
+58. Managing logs
+Logs are stored in /var/log/.
+
+59. Installing software on multiple servers
+Use ansible, puppet, or bash scripting.
+
+60. sed command
+Modify text (sed 's/hello/hi/g' file.txt).
+
+61. grep command
+Searches text (grep "word" file.txt).

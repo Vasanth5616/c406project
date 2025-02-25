@@ -1,0 +1,87 @@
+ cat /proc/meminfo
+
+Displays detailed memory usage information.
+Example: cat /proc/meminfo | grep MemTotal (Shows total RAM).
+free --mega -h
+
+Shows free and used memory in MB (--mega) and human-readable (-h) format.
+Example: free -m
+man free
+
+Opens the manual page for free command.
+Process Management
+ps
+
+Lists running processes.
+Example: ps aux (Shows all processes).
+vmstat 1
+
+Displays system performance stats every second.
+ps aux --sort -rss
+
+Sorts processes by memory usage.
+ps aux --sort -%mem
+
+Sorts processes by memory usage percentage.
+ps -eo user,pid,%mem,stat,cmd --sort=-%mem
+
+Displays memory usage per process.
+ps aux --sort -%cpu
+
+Sorts processes by CPU usage.
+ps aux --forest
+
+Shows processes in a tree structure.
+watch 'ps aux --sort -%mem | head'
+
+Continuously displays top memory-consuming processes.
+top
+
+Displays real-time system resource usage.
+File Operations & Storage
+dd if=/dev/urandom of=8kb_file bs=1K count=8
+
+Creates an 8KB random data file.
+stat 8kb_file
+
+Shows file details (size, permissions, etc.).
+df -i
+
+Shows available inodes on the filesystem.
+Networking Commands
+ping 8.8.8.8
+
+Checks network connectivity with Google’s public DNS.
+ping -c 10 8.8.8.8
+
+Sends 10 ICMP requests to 8.8.8.8.
+nslookup example.com
+
+Resolves domain name to IP address.
+nslookup 8.8.8.8
+
+Resolves IP address to domain name.
+traceroute cracku.com
+
+Shows network path to the domain.
+sudo apt install traceroute
+
+Installs traceroute package.
+dnf search stress
+
+Searches for the stress package using dnf (RHEL-based).
+sudo apt install dnf
+
+Installs dnf on Debian-based systems.
+sudo dnf install stress
+
+Installs stress package for system testing.
+Package Management
+apt update
+
+Updates package lists on Debian-based systems.
+free --mega
+
+Shows memory usage in MB.
+ 
+ 
