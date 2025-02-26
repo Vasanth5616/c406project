@@ -1,0 +1,96 @@
+Create a New User
+Q: How to create a new user named orderbook and set its password?
+sudo adduser orderbook
+echo 'orderbook:academy' | sudo chpasswd
+
+2. Set Password Expiry
+Q: How to set the password of orderbook to expire immediately?
+sudo passwd --expire orderbook
+
+3. Add User to Sudoers
+Q: How to add orderbook user to sudoers file?
+sudo visudo
+orderbook ALL=(ALL:ALL) NOPASSWD:ALL
+
+4. Log In as New User
+Q: How to log in as the new user orderbook?
+su orderbook
+
+5. Change Password (After Expiry)
+Q: After setting the password to expire, how to change it?
+You will be prompted to change the password when logging in after setting expiry. Use the old password academy and set a new password.
+
+6. Create Directory in /home
+Q: How to create a directory named test in /home?
+mkdir /home/test
+# This should fail due to insufficient permissions.
+
+7. Create Directory with sudo
+Q: How to create the test directory in /home using sudo?
+sudo mkdir /home/test
+
+8. List Files in /home with Permissions
+Q: How to list files in /home and display their permissions?
+ls -l /home
+
+9. Examine Group Information
+Q: How to see all groups on the system?
+cat /etc/group
+
+10. Create a New Group
+Q: How to create a new group named admins?
+sudo groupadd admins
+
+11. Add User to Group
+Q: How to add orderbook to the admins group?
+sudo usermod -a -G admins orderbook
+
+12. Log In Again to Refresh Group Privileges
+Q: How to refresh the group privileges after adding a user to a group?
+su orderbook
+
+13. Create a File in /home/test Without sudo
+Q: How to attempt creating a file in /home/test without sudo?
+touch /home/test/test.txt
+# This should fail due to lack of permissions.
+
+14. Change Group Ownership of /home/test
+Q: How to change the group ownership of /home/test to admins?
+sudo chgrp -R admins /home/test
+
+15. Modify Directory Permissions
+Q: How to change permissions of /home/test to allow the group to write?
+sudo chmod 771 /home/test/
+# Or alternatively:
+# sudo chmod g+w /home/test/
+
+16. Log Out and Log Back In to Refresh Permissions
+Q: How to refresh the permissions after modifying them?
+su orderbook
+
+17. Create a File in /home/test Again
+Q: After modifying permissions, how to try adding test.txt again without sudo?
+touch /home/test/test.txt
+
+18. Make User orderbook the Owner of /home/test
+Q: How to make orderbook the owner of /home/test directory?
+sudo chown -R orderbook /home/test
+
+19. Create a Script in /home/test/
+Q: How to create a script orderbook.sh in /home/test/?
+cat << EOF > /home/test/orderbook.sh
+echo "welcome to orderbook"
+echo "Anyone can execute this script!!!"
+echo "But not everyone can edit it"
+
+20. Allow All Users to Execute the Script
+Q: How to allow all users to execute the script orderbook.sh?
+chmod a+x+r /home/test/orderbook.sh
+# Or
+# chmod 755 /home/test/orderbook.sh
+
+Q: How to log out and edit the script with read-only permissions?
+vi /home/test/orderbook.sh
+
+Q: How to execute the script as any user?
+A:bash /home/test/orderbook.sh
