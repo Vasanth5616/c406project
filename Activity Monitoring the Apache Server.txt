@@ -1,0 +1,136 @@
+sudo yum update -y
+     This command updates the system by installing the latest versions of all installed packages.
+     If you have a Red Hat-based Linux distribution (e.g., CentOS, RHEL), this command will update all the packages on the system without asking for confirmation (-y auto-confirms).
+
+
+
+sudo yum install httpd -y
+     Installs the Apache HTTP server (httpd) package.
+     This command will install Apache (httpd) on a CentOS/RHEL system with no user prompt because of the -y flag.
+
+
+
+sudo systemctl start httpd
+
+     This command starts the Apache HTTP server service.
+     After installation, you can start the HTTP service to begin serving web pages.
+dig TXT +short o-o.myaddr.l.google.com @ns1.google.com
+
+     Performs a DNS query to obtain the public IP address of your server.
+     This command uses dig (Domain Information Groper) to retrieve your public IP address by querying Google's DNS server.
+
+
+sudo netstat -lpn | grep -i 'listen\b'
+
+     This shows all active network connections that are currently listening for incoming connections.
+     This command filters and lists services that are in a "listening" state (waiting for incoming connections) along with their process IDs.
+
+
+sudo systemctl stop httpd
+
+     Stops the Apache HTTP server service.
+     If you want to stop serving web pages, you can use this command.
+
+
+sudo netstat -lpn | grep -i 'listen\b'
+
+     (Repeated) Similar to the previous netstat command, but after stopping a service, it can be used to confirm that the service is no longer listening for connections.
+
+
+sudo systemctl start httpdsudo systemctl start httpd
+
+     This is an error in syntax. The command should be separated properly.
+     It should be sudo systemctl start httpd, which starts the Apache server.
+
+
+sudo systemctl start httpd
+
+     Starts the Apache HTTP service on the system.
+
+
+
+sudo netstat -ntcp
+
+     This shows active TCP connections on the system.
+     This will list all open TCP connections and their statuses.
+
+
+
+ps
+
+     Displays information about currently running processes.
+     Running ps will give you a snapshot of the processes running in your current session.
+
+
+
+ps -efH
+
+     This command shows detailed information about all processes, including hierarchical relationships (H flag displays processes in a tree format).
+     It provides a detailed list of all running processes with parent-child relationships.
+
+
+
+ps -ef | grep httpd
+
+     Filters the running processes to find processes related to Apache HTTP server (httpd).
+     This will return the processes related to the Apache server if it’s running.
+
+
+
+pgrep httpd
+
+     Finds the process IDs (PIDs) of processes matching the name httpd.
+     This will list the PIDs of all running Apache processes.
+
+
+
+ls -l /proc/<PID>/fd
+
+     This lists the file descriptors of a process, where <PID> is the process ID.
+     ls -l /proc/1234/fd will show all files, sockets, etc., that process 1234 has open.
+
+
+ls -l
+
+     Lists the contents of the current directory in long format, showing permissions, owners, file sizes, and timestamps.
+     This command gives detailed information about files in the current directory.
+
+
+
+
+pgrep httpd | sudo xargs -I {} sh -c 'echo "PID   {}"; ls -l /proc/{}/fd'
+
+     This finds the PIDs of httpd processes, then lists the file descriptors for each of those processes.
+     This would return a list of open files and network connections for the Apache server processes.
+
+
+
+sudo cat /var/log/httpd/access_log | awk '{print $1}'
+
+     This command extracts the first field (the IP address) from each line of the Apache access log.
+     You’ll see a list of IP addresses that accessed the web server.
+
+
+
+
+awk '{count[$1" "$2]++} END {for (key in count) print key, count[key]}' 404.txt | sort -k3,3nr > aggregated_404.txt
+
+     This command counts the occurrences of each unique combination of the first two fields in the 404.txt file and then sorts them by the count, outputting to aggregated_404.txt.
+     You might use this to aggregate data for HTTP 404 errors.
+
+
+
+sudo cat /var/log/httpd/access_log | awk '/404/ {$(NF+1)=$1;print}' | awk -FGET '{print $2}' | awk '{print $1, $NF}' > 404.txt
+
+     This extracts lines with 404 status codes from the Apache access log, processes them, and extracts the URL of the 404 requests, saving them to 404.txt.
+     Use this to track all 404 errors.
+
+
+
+awk '{count[$1" "$2]++} END {for (key in count) print key, count[key]}' 404.txt | sort -k3,3nr > aggregated_404.txt
+Similar to the earlier command for aggregation, it counts how many times each IP and URL combination occurs and sorts them.
+     It helps aggregate data about 404 errors in an organized manner.
+less aggregated_404.txt
+
+     This command allows you to view the contents of aggregated_404.txt in a scrollable manner.
+     You can use less to read long files without loading them all at once, making it easier to navigate.

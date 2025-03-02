@@ -1,0 +1,78 @@
+1. Print all environment variables in the system
+  :printenv
+
+2. Add an environment variable and confirm it is set
+  :export name=Josh
+echo "My name is $name"
+echo 'My name is $name'   # prints the literal $name, not the value
+
+3. Create a variable without using export and check behavior
+  :
+ 
+  
+name=Brown
+echo $lname   # prints nothing since $lname is not defined
+
+4. Create a script to demonstrate variables in subprocesses
+  :export name=Josh
+lname=Brown
+echo 'echo $name' > test.sh  # prints Josh when executed
+echo 'echo $lname' >> test.sh  # does not print anything
+chmod +x test.sh
+./test.sh
+
+5. Log out and log back in to check environment variable behavior
+  :exit   # Log out
+# log back in
+echo $name   # should be empty
+echo $lname  # should be empty
+
+6. Inspect the . _profile file
+  :
+ 
+  
+less ~/. _profile
+
+7. Append the export command to . _profile
+  :echo 'export envname=Josh' >> ~/. _profile
+exit   # Log out
+# log in again
+# or use the command:
+source ~/. _profile
+
+8. Check the PATH environment variable
+  :echo $PATH
+
+9. Setup .local/bin if not present
+  [[ ! -d "$HOME/.local/bin" ]] && mkdir -p $HOME/.local/bin && echo 'export PATH="$PATH:$HOME/.local/bin"' >> $HOME/. _profile && source $HOME/. _profile
+
+10. Create a script and place it in .local/bin
+  :cat << EOF > welcome
+echo "Welcome \$USER"
+[[ \$1 = "date" ]] && echo "Today is \$(date)"
+EOF
+chmod +x welcome
+mv welcome $HOME/.local/bin
+
+11. Create an alias for the script
+  :echo 'alias wd="welcome date"' >> ~/. _profile
+source ~/. _profile
+wd   # Run the alias
+
+12. Create a "Hello World" Python script
+  :mkdir ~/scripts
+cd ~/scripts
+cat << EOF > hello.py
+#!/usr/bin/env python3
+print("Hello World of Python")
+EOF
+chmod +x ~/scripts/hello.py
+./hello.py
+
+13. Add the scripts directory to your PATH
+  :echo 'PATH=$PATH:$HOME/scripts' >> ~/. _profile
+source ~/. _profile
+echo $PATH
+
+14. Run Python script from anywhere
+  :hello.py   # Run the Python script from any directory

@@ -1,0 +1,81 @@
+1. Printing with cat
+Printing multiple lines using cat with a delimiter:
+
+   
+cat << EOF
+Cat can print multi lines.
+The << \EOF defines the delimiter to use to end the stream.
+When \EOF is found and not escaped, cat will end.
+EOF
+Redirect output to standard error with cat:
+
+  
+  
+cat << EOF >&2
+You can also redirect to standard error
+Will only print on error exit code
+EOF
+exit 1
+
+
+2. Defining and Using Functions
+Defining a function and using it:
+  
+  
+add_numbers(){
+    echo $(($1 + $2))
+}
+result=$(add_numbers 5 10)  # using $() to capture the output of add_numbers in a variable
+echo $result  # prints 15
+
+
+3. Using Conditions
+Test condition using && and ||:
+
+  
+  
+num=15
+[ $num -eq 15 ] && echo "num is 15" || echo "num is not 15"
+Chaining multiple statements:
+
+  
+  
+[ $num -eq 15 ] && { echo "num is 15"; num=$((num+1)); echo $num; } || echo "num not 15";
+Using && and || for more complex conditions:
+
+  
+  
+[ $num -ne 15 ] && echo "again num not 15" && [ $num -le 100 ] && echo "less than 100" || echo "was 15 or less than 100"
+Using [[ ]] for extended test conditions:
+
+  
+  
+if [[ $num -gt 10 && $num -lt 20 ]]; then echo "num is between 10 and 20"; fi
+
+
+4. Using getopts for Handling Options
+Define a script divide.sh to handle command-line options:
+
+  
+  
+# divide.sh
+
+while getopts q:d: o; do
+  case $o in
+    q) quotient=$OPTARG;;
+    d) denominator=$OPTARG;;
+    *) echo "Invalid option:"; exit 1;
+  esac
+done
+
+shift "$((OPTIND - 1))"  # remove the processed arguments
+echo $((quotient / denominator))  # calculate quotient divided by denominator
+Executing divide.sh with different parameter formats:
+
+  
+  
+./divide.sh -q 40 -d 10
+./divide.sh -q40 -d10
+./divide.sh -d 10 -q 40
+./divide.sh -q 40 -d10
+./divide.sh -d10 -q 40
